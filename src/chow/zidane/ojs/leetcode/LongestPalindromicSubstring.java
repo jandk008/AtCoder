@@ -17,7 +17,7 @@ public class LongestPalindromicSubstring {
 	 * @author ziczhou
 	 * 
 	 */
-	static class DynamicProgramming {
+	class DynamicProgramming {
 		public String longestPalindrome(String s) {
 			if (null == s || s.length() == 0) {
 				return "";
@@ -28,7 +28,6 @@ public class LongestPalindromicSubstring {
 			char[] a = s.toCharArray();
 			int beginIndex = 0;
 			int maxLength = 1;
-			String res = "";
 			int n = s.length();
 			boolean[][] p = new boolean[s.length()][s.length()];
 			// for single character
@@ -72,7 +71,7 @@ public class LongestPalindromicSubstring {
 	 * @author ziczhou
 	 * 
 	 */
-	static class ExpandCenter {
+	class ExpandCenter {
 		public String longestPalindrome(String s) {
 			if (null == s || s.length() == 0) {
 				return "";
@@ -100,12 +99,17 @@ public class LongestPalindromicSubstring {
 			}
 			return res;
 		}
-		
+
 		/**
-		 * Expand checked palindrome by comparing left character and right character of center
-		 * @param a array to check 
-		 * @param low left side of center, maybe equal to high
-		 * @param high right side of center, maybe equal to low
+		 * Expand checked palindrome by comparing left character and right
+		 * character of center
+		 * 
+		 * @param a
+		 *            array to check
+		 * @param low
+		 *            left side of center, maybe equal to high
+		 * @param high
+		 *            right side of center, maybe equal to low
 		 * @return
 		 */
 		public String expand(char[] a, int low, int high) {
@@ -158,7 +162,7 @@ public class LongestPalindromicSubstring {
 	 * @author ziczhou
 	 * 
 	 */
-	static class ManacherAlgorithm {
+	class ManacherAlgorithm {
 		public String longestPalindrome(String s) {
 			if (null == s || s.length() == 0) {
 				return "";
@@ -201,8 +205,10 @@ public class LongestPalindromicSubstring {
 			// find the maximum in p array
 			return findMax(s, p);
 		}
+
 		/**
 		 * Insert "#" into original string to convert
+		 * 
 		 * @param t
 		 * @param a
 		 */
@@ -236,54 +242,57 @@ public class LongestPalindromicSubstring {
 	 * @author ziczhou
 	 * 
 	 */
-	static class BruteForce {
-		public String longestPalindrome(String s) {
-			if (null == s || s.length() == 0) {
-				return "";
-			}
-			if (s.length() == 1) {
-				return s;
-			}
-			char[] a = s.toCharArray();
-			int maxLength = 1;
-			String res = "";
-			for (int i = 0; i < a.length; i++) {
-				for (int j = i + 1; j < a.length; j++) {
-					if (isPalindrome(a, i, j)) {
-						if (j - i + 1 > maxLength) {
-							maxLength = j - i + 1;
-							res = s.substring(i, j + 1);
-						}
+	public String longestPalindrome(String s) {
+		if (null == s || s.length() == 0) {
+			return "";
+		}
+		if (s.length() == 1) {
+			return s;
+		}
+		char[] a = s.toCharArray();
+		int maxLength = 1;
+		String res = "";
+		for (int i = 0; i < a.length; i++) {
+			for (int j = i + 1; j < a.length; j++) {
+				if (isPalindrome(a, i, j)) {
+					if (j - i + 1 > maxLength) {
+						maxLength = j - i + 1;
+						res = s.substring(i, j + 1);
 					}
 				}
 			}
-			return res;
 		}
-		/**
-		 * Judge passed string is a palindrome or not
-		 * @param a array to check
-		 * @param low left side 
-		 * @param high right side 
-		 * @return
-		 */
-		public boolean isPalindrome(char[] a, int low, int high) {
-			boolean res = true;
-			if (low > high) {
-				return false;
-			} else if (low == high) {
-				return true;
-			}
-			int l = low;
-			int r = high;
-			while (l < r) {
-				if (a[l] != a[r]) {
-					res = false;
-				}
-				l++;
-				r--;
-			}
-			return res;
-		}
-
+		return res;
 	}
+
+	/**
+	 * Judge passed string is a palindrome or not
+	 * 
+	 * @param a
+	 *            array to check
+	 * @param low
+	 *            left side
+	 * @param high
+	 *            right side
+	 * @return
+	 */
+	public boolean isPalindrome(char[] a, int low, int high) {
+		boolean res = true;
+		if (low > high) {
+			return false;
+		} else if (low == high) {
+			return true;
+		}
+		int l = low;
+		int r = high;
+		while (l < r) {
+			if (a[l] != a[r]) {
+				res = false;
+			}
+			l++;
+			r--;
+		}
+		return res;
+	}
+
 }
