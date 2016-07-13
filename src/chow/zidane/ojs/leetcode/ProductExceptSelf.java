@@ -1,5 +1,7 @@
 package chow.zidane.ojs.leetcode;
 
+import java.util.LinkedList;
+
 public class ProductExceptSelf {
 	public static int[] productExceptSelf(int[] nums) {
         int n = nums.length;
@@ -20,6 +22,6 @@ public class ProductExceptSelf {
 	public static void main(String[] args){
 		int[] nums = {1,2,3,4};
 		int [] output = productExceptSelf(nums);
-		int k =1 ;
+		LinkedList<Integer> lisst =new LinkedList<Integer>();
 	}
 }
