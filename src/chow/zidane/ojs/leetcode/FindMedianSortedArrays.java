@@ -43,8 +43,8 @@ public class FindMedianSortedArrays {
 		int[] i3 = {1,2};
 		int[] i4 = {1,2};
 //		int[] i2 = {};
-//		System.out.println(findMedianSortedArrays.findKth(i1, i2, 0, 0, i1.length -1, i2.length - 1, 8));
-//		System.out.println(findMedianSortedArrays.findMedianSortedArrays(i1, i2));
+		System.out.println(FindMedianSortedArrays.findKth(i1, i2, 0, 0, i1.length -1, i2.length - 1, 8));
+		System.out.println(findMedianSortedArrays.findMedianSortedArrays(i1, i2));
 		System.out.println(findMedianSortedArrays.findMedianSortedArrays(i3, i4));
 	}
 }
