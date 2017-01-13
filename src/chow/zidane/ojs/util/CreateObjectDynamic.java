@@ -4,10 +4,6 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.Map;
 
-import javax.tools.JavaCompiler;
-import javax.tools.StandardJavaFileManager;
-import javax.tools.ToolProvider;
-
 import chow.zidane.compiler.MemoryClassLoader;
 import chow.zidane.compiler.MemoryJavaCompiler;
 
