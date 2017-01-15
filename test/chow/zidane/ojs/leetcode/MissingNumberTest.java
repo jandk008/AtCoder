@@ -22,5 +22,10 @@ public class MissingNumberTest {
     public void newInstance() {
         assertNotNull(missingNumber);
     }
+    
+    @Test
+    public void sf() throws Exception {
+        
+    }
 
 }

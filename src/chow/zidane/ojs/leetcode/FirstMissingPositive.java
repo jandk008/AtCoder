@@ -29,7 +29,7 @@ public class FirstMissingPositive {
         return length;
     }
     
-    public int firstMissingPositive2(int[] nums) {
+    public int  firstMissingPositive2(int[] nums) {
         int n = nums.length;
         for(int i = 0; i < n; ++ i)
             while(nums[i] > 0 && nums[i] <= n && nums[nums[i] - 1] != nums[i])
@@ -41,8 +41,7 @@ public class FirstMissingPositive {
         
         return n + 1;
     }
-    
-    public static void swap(int[] nums, int a, int b) {
+     public void swap(int[] nums, int a, int b) {
         int tmp = nums[a];
         nums[a] = nums[b];
         nums[b] = tmp;
