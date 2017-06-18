@@ -19,8 +19,7 @@ import javax.tools.SimpleJavaFileObject;
 /**
  * JavaFileManager that keeps compiled .class bytes in memory.
  */
-@SuppressWarnings("unchecked")
-public class MemoryJavaFileManager extends ForwardingJavaFileManager {
+public class MemoryJavaFileManager extends ForwardingJavaFileManager<JavaFileManager> {
 
     /** Java source file extension. */
     private final static String EXT = ".java";
