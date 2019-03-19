@@ -1,61 +1,31 @@
 package chow.zidane.ojs.leetcode;
 
-import static org.junit.Assert.*;
+import static chow.zidane.ojs.leetcode.TestUtils.toIntArray;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import chow.zidane.ojs.leetcode.MissingNumber.ExclusiveOr;
+import java.util.stream.Stream;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
-public class MissingNumberTest {
+class MissingNumberTest {
 
-    private MissingNumber missingNumber = new MissingNumber();
+    private Executable sut = new ExclusiveOr();
 
-    @BeforeClass
-    public static void setUpBeforeClass() throws Exception {
+    @ParameterizedTest
+    @MethodSource("getDataSource")
+    void test(int[] in, int out) {
+        assertEquals(out, sut.execute(in));
     }
 
-    @Before
-    public void setUp() throws Exception {
+    static Stream<Arguments> getDataSource() {
+        return Stream.of(
+                Arguments.of(toIntArray(0), 1),
+                Arguments.of(toIntArray(1), 0),
+                Arguments.of(toIntArray(0, 1), 2),
+                Arguments.of(toIntArray(2, 3, 4, 0), 1),
+                Arguments.of(toIntArray(3, 4, 2, 0), 1),
+                Arguments.of(toIntArray(5, 4, 1, 2, 0), 3));
     }
-
-    @Test
-    public void createInstance() {
-        assertNotNull(missingNumber);
-    }
-
-    @Test
-    public void isSingleNumber1() throws Exception {
-        int[] nums = { 1 };
-        int res = missingNumber.missingNumber(nums);
-        assertEquals(0, res);
-    }
-
-    @Test
-    public void isSingleNumber0() throws Exception {
-        int[] nums = { 0 };
-        int res = missingNumber.missingNumber(nums);
-        assertEquals(1, res);
-    }
-
-    @Test
-    public void isConsecutiveArray() throws Exception {
-        int[] nums = { 0, 1 };
-        int res = missingNumber.missingNumber(nums);
-        assertEquals(2, res);
-    }
-
-    @Test
-    public void missIntermediaryNumber() throws Exception {
-        int[] nums = { 2, 3, 4, 0 };
-        int res = missingNumber.missingNumber(nums);
-        assertEquals(1, res);
-    }
-
-    @Test
-    public void missIntermediaryNumber2() throws Exception {
-        int[] nums = { 3, 2, 4, 0 };
-        int res = missingNumber.missingNumber(nums);
-        assertEquals(1, res);
-    }
-
 }
