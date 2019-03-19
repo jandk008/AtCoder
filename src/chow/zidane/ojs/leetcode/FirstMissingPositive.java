@@ -1,5 +1,7 @@
 package chow.zidane.ojs.leetcode;
 
+import java.util.function.Function;
+
 /**
  * Given an unsorted integer array, find the first missing positive integer.
  * For example,
@@ -16,10 +18,10 @@ class FirstMissingPositive {
      * array , the first number which is not marked will be returned, otherwise the maximum number + 1 will be returned.
      * T(n) = O(n) with S(n), beating 9.6% java submission, not good.
      */
-    static class MaximumRange implements Executable {
+    static class MaximumRange implements Function<int[], Integer> {
 
         @Override
-        public int execute(final int[] nums) {
+        public Integer apply(final int[] nums) {
             int min = 0;
             int max = min;
             for (int i : nums) {
@@ -55,10 +57,10 @@ class FirstMissingPositive {
      * number. Otherwise the swapped number won't be verified.
      * T(n) = O(n) with S(n) = (1), beats 70.73% java submission, performance good.
      */
-    static class Swap implements Executable {
+    static class Swap implements Function<int[], Integer> {
 
         @Override
-        public int execute(final int[] nums) {
+        public Integer apply(final int[] nums) {
             int n = nums.length;
             for (int i = 0; i < n; ++i) {
                 while (nums[i] > 0 && nums[i] <= n && nums[nums[i] - 1] != nums[i]) {

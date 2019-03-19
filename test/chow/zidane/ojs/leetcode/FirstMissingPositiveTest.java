@@ -4,6 +4,7 @@ import static chow.zidane.ojs.leetcode.TestUtils.toIntArray;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import chow.zidane.ojs.leetcode.FirstMissingPositive.MaximumRange;
+import java.util.function.Function;
 import java.util.stream.Stream;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -11,12 +12,12 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 class FirstMissingPositiveTest {
 
-    private Executable firstMissingPositive = new MaximumRange();
+    private Function<int[], Integer> function = new MaximumRange();
 
     @ParameterizedTest
     @MethodSource("getDataSource")
     void test(final int[] nums, final int out) {
-        assertEquals(out, firstMissingPositive.execute(nums));
+        assertEquals(out, function.apply(nums).intValue());
     }
 
     static Stream<Arguments> getDataSource() {

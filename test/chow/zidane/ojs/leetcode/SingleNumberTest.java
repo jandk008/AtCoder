@@ -3,6 +3,7 @@ package chow.zidane.ojs.leetcode;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import chow.zidane.ojs.leetcode.SingleNumber.ExclusiveOr;
+import java.util.function.Function;
 import java.util.stream.Stream;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -10,12 +11,12 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 class SingleNumberTest {
 
-    private Executable executable = new ExclusiveOr();
+    private Function<int[], Integer> function = new ExclusiveOr();
 
     @ParameterizedTest
     @MethodSource("getDataSource")
     void test(final int[] nums, final int out) {
-        assertEquals(out, executable.execute(nums));
+        assertEquals(out, function.apply(nums).intValue());
     }
 
     private static Stream<Arguments> getDataSource() {

@@ -4,6 +4,7 @@ import static chow.zidane.ojs.leetcode.TestUtils.toIntArray;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import chow.zidane.ojs.leetcode.MissingNumber.ExclusiveOr;
+import java.util.function.Function;
 import java.util.stream.Stream;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -11,12 +12,12 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 class MissingNumberTest {
 
-    private Executable sut = new ExclusiveOr();
+    private Function<int[], Integer> function = new ExclusiveOr();
 
     @ParameterizedTest
     @MethodSource("getDataSource")
     void test(int[] in, int out) {
-        assertEquals(out, sut.execute(in));
+        assertEquals(out, function.apply(in).intValue());
     }
 
     static Stream<Arguments> getDataSource() {
