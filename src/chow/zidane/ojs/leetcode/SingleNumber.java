@@ -1,7 +1,5 @@
 package chow.zidane.ojs.leetcode;
 
-import java.util.function.Function;
-
 class SingleNumber {
 
     /**
@@ -10,10 +8,9 @@ class SingleNumber {
      * removed by xor while single number will be left. T(n) = O(n) with S(1), beats 36.9% java
      * submission.
      */
-    static class ExclusiveOr implements Function<int[], Integer> {
+    static class ExclusiveOr {
 
-        @Override
-        public Integer apply(final int[] nums) {
+        static Integer find(final int[] nums) {
             int xor = 0;
             for (final int num : nums) {
                 xor ^= num;

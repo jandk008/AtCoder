@@ -12,10 +12,9 @@ class ThirdMaximumNumber {
      * Use 3 variables to store 3 the most biggest number met, adjust each one when meet up with a new number.
      * T(n) = O(n), S(n) = O(1). Beats 65% submission, good.
      */
-    static class StoreTop3Max implements Function<int[], Integer> {
+    static class StoreTop3Max {
 
-        @Override
-        public Integer apply(final int[] nums) {
+        static Integer find(final int[] nums) {
             int max = Integer.MIN_VALUE, mid = max, min = max;
             for (int ele : nums) {
                 if (ele > max) {

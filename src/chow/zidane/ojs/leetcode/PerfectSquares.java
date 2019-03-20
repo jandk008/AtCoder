@@ -1,7 +1,5 @@
 package chow.zidane.ojs.leetcode;
 
-import java.util.function.Function;
-
 /**
  * Given a positive integer n, find the least number of perfect square numbers (for example, 1, 4, 9, 16, ...) which sum to n.
  *
@@ -22,10 +20,9 @@ class PerfectSquares {
      * Dynamic programming, the minimum number for perfect square is 1, then for each i, look backwards using 2 pointers to find min {
      * n[left] + n[right]} where left + right = i
      */
-    static class DynamicPrograming implements Function<Integer, Integer> {
+    static class DynamicPrograming {
 
-        @Override
-        public Integer apply(final Integer in) {
+        static Integer evaluate(final Integer in) {
             int[] res = new int[in + 1];
             for (int i = 1; i < res.length; i++) {
                 if (i * i <= in) {

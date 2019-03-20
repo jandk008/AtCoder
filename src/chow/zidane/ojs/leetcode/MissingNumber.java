@@ -1,7 +1,5 @@
 package chow.zidane.ojs.leetcode;
 
-import java.util.function.Function;
-
 /**
  * Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing from the array.
  * For example,
@@ -16,16 +14,14 @@ class MissingNumber {
      * void of overflow.
      * T(n) = O(n), with S(n) = O(1), beats 43.66% submission.
      */
-    static class SumSubtraction implements Function<int[], Integer> {
+    static class SumSubtraction {
 
-        @Override
-        public Integer apply(final int[] ints) {
+         static Integer find(final int[] ints) {
             int length = ints.length;
             int sum = length;
             for (int i = 0; i < length; i++) {
                 sum = sum + i - ints[i];
             }
-
             return sum;
         }
     }
@@ -36,10 +32,9 @@ class MissingNumber {
      * the array. If we xor the index with numbers, the left one should be the missing one.
      * T(n) = O(n), with S(n) = O(1) , beats 43.66% java submission.
      */
-    static class ExclusiveOr implements Function<int[], Integer> {
+    static class ExclusiveOr {
 
-        @Override
-        public Integer apply(final int[] ints) {
+        public static Integer find(final int[] ints) {
             int res = ints.length;
             for (int i = 0; i < ints.length; i++) {
                 res ^= i ^ ints[i];
