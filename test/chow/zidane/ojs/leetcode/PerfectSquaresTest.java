@@ -3,28 +3,14 @@ package chow.zidane.ojs.leetcode;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import chow.zidane.ojs.leetcode.PerfectSquares.DynamicPrograming;
-import java.util.stream.Stream;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.CsvSource;
 
 class PerfectSquaresTest {
 
     @ParameterizedTest
-    @MethodSource("argumentsProvider")
+    @CsvSource( {"1,1", "2,2", "3,3", "4,1", "9,1", "8,2", "13,2", "12,3"})
     void test(int in, int out) {
         assertEquals(out, new DynamicPrograming().apply(in));
-    }
-
-    private static Stream<Arguments> argumentsProvider() {
-        return Stream.of(
-                Arguments.of(1, 1),
-                Arguments.of(2, 2),
-                Arguments.of(3, 3),
-                Arguments.of(4, 1),
-                Arguments.of(9, 1),
-                Arguments.of(8, 2),
-                Arguments.of(13, 2),
-                Arguments.of(12, 3));
     }
 }
