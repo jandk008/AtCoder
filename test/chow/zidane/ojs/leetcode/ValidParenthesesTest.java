@@ -11,13 +11,15 @@ class ValidParenthesesTest {
     @ParameterizedTest
     @ValueSource(strings = {"", "()", "(()())", "()[]{}", "(())", "{[]}"})
     void testTrueCase(String s) {
-        assertTrue(ValidParentheses.is(s));
+        assertTrue(ValidParentheses.Mathematics.is(s));
+        assertTrue(ValidParentheses.StackMatching.is(s));
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"(}", ")(", "[([)", "()[{]}", "([)]", "(", "(){"})
     void testFalseCase(String s) {
-        assertFalse(ValidParentheses.is(s));
+        assertFalse(ValidParentheses.Mathematics.is(s));
+        assertFalse(ValidParentheses.StackMatching.is(s));
     }
 
 }
