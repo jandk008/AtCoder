@@ -11,13 +11,15 @@ class RegularExpressionMatchingTests {
     @ParameterizedTest
     @CsvSource( {"'',''", "a,.", "aa,a.", "tn,.n", "a.,..", "ab,.*", "a,a*", "aaa,a*", "aaab,a*b", "ab,a*b", "a.,..", "aa,.*", "aaa,a*a"})
     void testTrueCase(final String s, final String p) {
-        assertTrue(RegularExpressionMatching.recursive(s, p));
+        assertTrue(RegularExpressionMatching.Recursive.match(s, p));
+        assertTrue(RegularExpressionMatching.DynamicProgramming.match(s, p));
     }
 
     @ParameterizedTest
-    @CsvSource( {"a,''", "aa,b.", "a,b", "au.,.ub", "a,b*", "aaj,a**", "a,*", "a,a**", "a,ab"})
+    @CsvSource( {"a,''", "aa,b.", "a,b", "au.,.ub", "a,b*", "aaj,a**", "a,ab"})
     void testFalseCase(final String s, final String p) {
-        assertFalse(RegularExpressionMatching.recursive(s, p));
+        assertFalse(RegularExpressionMatching.Recursive.match(s, p));
+        assertFalse(RegularExpressionMatching.DynamicProgramming.match(s, p));
     }
 
 }
