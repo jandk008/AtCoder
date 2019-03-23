@@ -13,5 +13,4 @@ class IntegerToRomanTest {
     void test(int num, String s) {
         assertEquals(s, IntegerToRoman.convert(num));
     }
-
 }
