@@ -11,6 +11,6 @@ class PerfectSquaresTest {
     @ParameterizedTest
     @CsvSource( {"1,1", "2,2", "3,3", "4,1", "9,1", "8,2", "13,2", "12,3"})
     void test(int in, int out) {
-        assertEquals(out, DynamicPrograming.evaluate(in));
+        assertEquals(out, DynamicPrograming.evaluate(in).intValue());
     }
 }
