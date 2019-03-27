@@ -21,5 +21,4 @@ class ValidParenthesesTest {
         assertFalse(ValidParentheses.Mathematics.is(s));
         assertFalse(ValidParentheses.StackMatching.is(s));
     }
-
 }

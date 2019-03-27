@@ -1,4 +1,4 @@
-package chow.zidane.ojs.leetcode;
+package chow.zidane.ojs.leetcode.converter;
 
 import java.util.regex.Pattern;
 import org.junit.jupiter.params.converter.ArgumentConversionException;

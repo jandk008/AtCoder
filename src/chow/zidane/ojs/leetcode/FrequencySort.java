@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
-public class FrequnceSort {
+public class FrequencySort {
     public String frequencySort(String s) {
         Map<Character, CharAndAppr> map = new HashMap<>();
         char[] chars = s.toCharArray();
@@ -45,7 +45,7 @@ public class FrequnceSort {
 
     public static void main(String[] args) {
         String s = "cccaaa";
-        FrequnceSort sort = new FrequnceSort();
+        FrequencySort sort = new FrequencySort();
         System.out.println("result is " + sort.frequencySort(s));
     }
 

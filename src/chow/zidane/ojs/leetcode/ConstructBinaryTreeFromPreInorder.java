@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class ConstructBinaryTreeFromPreInorder {
 
-    static class ListNode {
+   private static class ListNode {
 
         TreeNode node;
         int index;
