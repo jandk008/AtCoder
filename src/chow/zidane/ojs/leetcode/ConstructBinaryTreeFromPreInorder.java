@@ -4,17 +4,6 @@ import java.util.LinkedList;
 
 public class ConstructBinaryTreeFromPreInorder {
 
-    static class TreeNode {
-
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
-
     static class ListNode {
 
         TreeNode node;
@@ -30,12 +19,12 @@ public class ConstructBinaryTreeFromPreInorder {
         }
     }
 
-    public TreeNode buildTree(int[] preorder, int[] inorder) {
+    private TreeNode buildTree(int[] preorder, int[] inorder) {
         if (preorder.length == 0 || inorder.length == 0) {
             return null;
         }
         // linkedlist stores index of each non-leaf node in preorder
-        LinkedList<ListNode> list = new LinkedList<ListNode>();
+        LinkedList<ListNode> list = new LinkedList<>();
         TreeNode res = new TreeNode(preorder[0]);
         list.addLast(new ListNode(res, 0, 0, inorder.length - 1));
         while (!list.isEmpty()) {

@@ -4,16 +4,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-public class BinaryTreePostorderTraversal {
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
+class BinaryTreePostorderTraversal {
 
     /**
      * 1. Easy to think up, here I use linked list to keep results because of property of easy add
@@ -26,7 +17,7 @@ public class BinaryTreePostorderTraversal {
      */
     static class Recursion {
         public List<Integer> postorderTraversal(TreeNode root) {
-            LinkedList<Integer> res = new LinkedList<Integer>();
+            LinkedList<Integer> res = new LinkedList<>();
             return postorderTraversal(root, res);
         }
 
@@ -51,9 +42,9 @@ public class BinaryTreePostorderTraversal {
      * @author zichengz
      *
      */
-    static class Interation {
+    static class Iteration {
         public List<Integer> postorderTraversal(TreeNode root) {
-            LinkedList<Integer> res = new LinkedList<Integer>();
+            LinkedList<Integer> res = new LinkedList<>();
             LinkedList<TreeNode> stack = new LinkedList<TreeNode>();
             while (true) {
                 while (null != root) {

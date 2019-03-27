@@ -5,17 +5,6 @@ import java.util.List;
 
 public class InorderTraversal {
 
-    public class TreeNode {
-
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
-
     public class StackNode {
 
         TreeNode node;
@@ -23,7 +12,7 @@ public class InorderTraversal {
         boolean right;
         boolean traveled;
 
-        public StackNode(
+        StackNode(
                 TreeNode node, boolean left, boolean right,
                 boolean traveled) {
             this.node = node;
@@ -113,12 +102,12 @@ public class InorderTraversal {
 
     public static void main(String[] args) {
         InorderTraversal inorderTraversal = new InorderTraversal();
-        TreeNode a = inorderTraversal.new TreeNode(1);
-        TreeNode b = inorderTraversal.new TreeNode(2);
-        TreeNode c = inorderTraversal.new TreeNode(3);
-        TreeNode d = inorderTraversal.new TreeNode(4);
-        TreeNode e = inorderTraversal.new TreeNode(5);
-        TreeNode f = inorderTraversal.new TreeNode(6);
+        TreeNode a = new TreeNode(1);
+        TreeNode b = new TreeNode(2);
+        TreeNode c = new TreeNode(3);
+        TreeNode d = new TreeNode(4);
+        TreeNode e = new TreeNode(5);
+        TreeNode f = new TreeNode(6);
         a.left = b;
         a.right = c;
         b.left = d;
