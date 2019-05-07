@@ -5,40 +5,27 @@ public class FindKthLargestInArray {
         return findKthLargestFromScope(nums, 0, nums.length - 1, k);
     }
 
-    private int findKthLargestFromScope(int[] arrayToFind, int leftBound, int rightBound, int k) {
-        if (leftBound + 1 == rightBound) {
-            if (arrayToFind[leftBound] < arrayToFind[rightBound]) {
-                swap(arrayToFind, leftBound, rightBound);
+    private int findKthLargestFromScope(int[] nums, int i, int j, int k) {
+        int pivotIndex = i;
+        int end = j;
+        while (i < j) {
+            while (i <= j && nums[i] <= nums[pivotIndex]) {
+                i++;
             }
-            return k == 1 ? arrayToFind[leftBound] : arrayToFind[rightBound];
+            while(j >= i && nums[j] > nums[pivotIndex]) {
+                j--;
+            }
+            if (i < j) swap(nums, i, j);
         }
-        int leftPointer = leftBound + 1;
-        int rightPointer = rightBound;
-        int pivat = arrayToFind[leftBound];
-        while (hasMet(leftPointer, rightPointer)) {
-            while (hasMet(leftPointer, rightPointer) && hasMet(leftPointer, rightBound) && arrayToFind[leftPointer] >= pivat) {
-                leftPointer++;
-            }
-            while (rightPointer >= leftPointer && hasMet(leftBound, rightPointer) && arrayToFind[rightPointer] <= pivat) {
-                rightPointer--;
-            }
-            if (hasMet(leftPointer, rightPointer)) {
-                swap(arrayToFind, leftPointer, rightPointer);
-            }
-        }
-        swap(arrayToFind, leftBound, rightPointer);
-        int rank = rightPointer - leftBound + 1;
-        if (k == rank) {
-            return arrayToFind[rightPointer];
-        } else if (k > rank) {
-            return findKthLargestFromScope(arrayToFind, rightPointer + 1, rightBound, k - rank);
+        swap(nums, pivotIndex, j);
+        int largest = end - j + 1;
+        if (largest == k) {
+            return nums[j];
+        } else if (largest > k) {
+            return findKthLargestFromScope(nums, j + 1, end, k);
         } else {
-            return findKthLargestFromScope(arrayToFind, leftBound, rightPointer, k);
+            return findKthLargestFromScope(nums, pivotIndex, j - 1, k - largest);
         }
-    }
-
-    private boolean hasMet(int leftPointer, int rightPointer) {
-        return leftPointer < rightPointer;
     }
 
     private void swap(int[] a, int leftPosition, int rightPosition) {
