@@ -10,6 +10,6 @@ class LongestNoneRepeatingSubstringTest {
     @ParameterizedTest
     @CsvSource( {"'aaaabbbbabcde', '5'", "'acaabbbba', '2'", "'aaacbaabbbbb', '3'", "'n', '1'"})
     void test(String a, int expect) {
-        assertEquals(LongestNoneRepeatingSubstring.dynamicProgramming(a.toCharArray()), expect);
+        assertEquals(expect, LongestNoneRepeatingSubstring.findWithMap(a.toCharArray()));
     }
 }

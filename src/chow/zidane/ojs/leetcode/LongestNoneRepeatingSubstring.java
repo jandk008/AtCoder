@@ -1,26 +1,26 @@
 package chow.zidane.ojs.leetcode;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 class LongestNoneRepeatingSubstring {
 
-    static int dynamicProgramming(final char[] a) {
-        Set<Character> set = new HashSet<>();
+    static int findWithMap(final char[] a) {
+        Map<Character, Integer> map = new HashMap<>();
         int max = 0;
         int start = 0;
         int end = start;
         while (end < a.length) {
-            if (!set.contains(a[end])) {
-                set.add(a[end]);
-                end++;
-            } else {
-                max = Math.max(max, set.size());
-                set.clear();
-                while (++start < a.length && a[start] == a[start - 1]);
-                end = start;
+            Integer previousId = map.put(a[end], end);
+            if (previousId != null) {
+                if (previousId >= start) {
+                    max = Math.max(max, end - start);
+                    start = previousId + 1;
+                }
             }
+            end ++;
         }
-        return Math.max(max, set.size());
+        max = Math.max(max, end - start);
+        return max;
     }
 }
