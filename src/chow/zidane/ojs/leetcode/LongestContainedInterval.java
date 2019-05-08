@@ -15,7 +15,7 @@ class LongestContainedInterval {
             int length = 1;
             int extend = i - 1;
             while (set.contains(extend)) {
-                length ++;
+                length++;
                 set.remove(extend--);
             }
             extend = i + 1;
