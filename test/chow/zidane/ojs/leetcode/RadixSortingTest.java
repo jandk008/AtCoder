@@ -14,5 +14,4 @@ class RadixSortingTest {
     void test(@ConvertWith(StringToIntArrayConverter.class) int[] nums, @ConvertWith(StringToIntArrayConverter.class) int[] expected) {
         assertArrayEquals(expected, RadixSorting.sort(nums));
     }
-
 }

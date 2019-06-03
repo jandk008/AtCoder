@@ -5,10 +5,8 @@ class RadixSorting {
     static int[] sort(final int[] nums) {
         int maximumNumber = findMax(nums);
         int digit = 1;
-        while (maximumNumber != 0) {
+        for (;maximumNumber > 0; maximumNumber /= 10, digit *= 10) {
             countingSort(nums, digit);
-            digit *= 10;
-            maximumNumber >>= 1;
         }
         return nums;
     }
