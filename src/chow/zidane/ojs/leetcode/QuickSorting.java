@@ -19,23 +19,19 @@ class QuickSorting {
     }
 
     private static int partition(final int[] nums, int l, int r) {
-        if (l < r) {
-            int pivotIndex = l;
-            int pivot = nums[l];
-            while (l < r) {
-                while (l <= r && nums[l] <= pivot) {
-                    l++;
-                }
-                while (l <= r && nums[r] >= pivot) {
-                    r--;
-                }
-                if (l < r) {
-                    swap(nums, l, r);
-                }
+        int pivotIndex = l;
+        while (l < r) {
+            while (l <= r && nums[l] <= nums[pivotIndex]) {
+                l++;
             }
-            swap(nums, pivotIndex, r);
-            return r;
+            while (l <= r && nums[r] > nums[pivotIndex]) {
+                r--;
+            }
+            if (l < r) {
+                swap(nums, l, r);
+            }
         }
-        return -1;
+        swap(nums, pivotIndex, r);
+        return r;
     }
 }

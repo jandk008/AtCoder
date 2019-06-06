@@ -1,5 +1,7 @@
 package chow.zidane.ojs.leetcode;
 
+import static chow.zidane.ojs.util.CommonTool.swap;
+
 /**
  * Given an unsorted integer array, find the first missing positive integer.
  * For example,
@@ -71,12 +73,6 @@ class FirstMissingPositive {
             }
 
             return n + 1;
-        }
-
-        static void swap(int[] nums, int a, int b) {
-            int tmp = nums[a];
-            nums[a] = nums[b];
-            nums[b] = tmp;
         }
     }
 }

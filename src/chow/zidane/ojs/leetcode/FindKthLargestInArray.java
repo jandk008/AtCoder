@@ -1,5 +1,7 @@
 package chow.zidane.ojs.leetcode;
 
+import static chow.zidane.ojs.util.CommonTool.swap;
+
 public class FindKthLargestInArray {
     public int findKthLargest(int[] nums, int k) {
         return findKthLargestFromScope(nums, 0, nums.length - 1, k);
@@ -26,12 +28,6 @@ public class FindKthLargestInArray {
         } else {
             return findKthLargestFromScope(nums, pivotIndex, j - 1, k - largest);
         }
-    }
-
-    private void swap(int[] a, int leftPosition, int rightPosition) {
-        int temp = a[leftPosition];
-        a[leftPosition] = a[rightPosition];
-        a[rightPosition] = temp;
     }
 
     public static void main(String[] args) {
