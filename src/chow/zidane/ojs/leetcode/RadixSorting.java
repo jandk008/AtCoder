@@ -3,29 +3,29 @@ package chow.zidane.ojs.leetcode;
 class RadixSorting {
 
     static int[] sort(final int[] nums) {
-        int maximumNumber = findMax(nums);
-        int digit = 1;
-        for (;maximumNumber > 0; maximumNumber /= 10, digit *= 10) {
-            countingSort(nums, digit);
+        for (int exp = 1, maximumNumber = findMax(nums); maximumNumber > 0; maximumNumber /= 10, exp *= 10) {
+            countingSort(nums, exp);
         }
         return nums;
     }
 
-    private static void countingSort(final int[] nums, final int digit) {
+    private static void countingSort(final int[] nums, final int exp) {
         int[] count = new int[10];
         for (final int num : nums) {
-            int currentDigit = (num / digit) % 10;
-            count[currentDigit]++;
+            count[getDigit(num, exp)]++;
         }
         for (int i = 1; i < count.length; i++) {
             count[i] += count[i - 1];
         }
         int[] output = new int[nums.length];
         for (int i = nums.length - 1; i >= 0; i--) {
-            output[count[(nums[i] / digit) % 10] - 1] = nums[i];
-            count[(nums[i] / digit) % 10]--;
+            output[--count[getDigit(nums[i], exp)]] = nums[i];
         }
         System.arraycopy(output, 0, nums, 0, nums.length);
+    }
+
+    private static int getDigit(final int num, final int exp) {
+        return (num / exp) % 10;
     }
 
     private static int findMax(final int[] nums) {
