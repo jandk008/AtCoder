@@ -13,15 +13,14 @@ class ShortestSubArray {
         int degree = 1;
         int min = Integer.MAX_VALUE;
         for (int i = 0; i < nums.length; i++) {
-            Appearance appearance = map.putIfAbsent(nums[i], new Appearance(1, i, i));
+            Appearance appearance = map.putIfAbsent(nums[i], new Appearance(1, i));
             if (appearance != null) {
                 appearance.count++;
-                appearance.end = i;
                 if (appearance.count > degree) {
                     degree = appearance.count;
-                    min = appearance.end - appearance.start + 1;
+                    min = i - appearance.start + 1;
                 } else if (appearance.count == degree) {
-                    min = Math.min(min, appearance.end - appearance.start + 1);
+                    min = Math.min(min, i - appearance.start + 1);
                 }
             }
         }
@@ -33,12 +32,10 @@ class ShortestSubArray {
 
         int count;
         int start;
-        int end;
 
-        private Appearance(final int count, final int start, final int end) {
+        private Appearance(final int count, final int start) {
             this.count = count;
             this.start = start;
-            this.end = end;
         }
     }
 }
