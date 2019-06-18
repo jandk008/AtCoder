@@ -20,7 +20,6 @@ class LongestNoneRepeatingSubstring {
             }
             end ++;
         }
-        max = Math.max(max, end - start);
-        return max;
+        return Math.max(max, end - start);
     }
 }
