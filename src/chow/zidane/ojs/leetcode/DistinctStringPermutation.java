@@ -1,5 +1,7 @@
 package chow.zidane.ojs.leetcode;
 
+import static chow.zidane.ojs.util.CommonTool.swap;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -42,11 +44,5 @@ class DistinctStringPermutation {
                 swap(nums, i, index);
             }
         }
-    }
-
-    private static void swap(final int[] nums, final int i, final int j) {
-        int t = nums[i];
-        nums[i] = nums[j];
-        nums[j] = t;
     }
 }

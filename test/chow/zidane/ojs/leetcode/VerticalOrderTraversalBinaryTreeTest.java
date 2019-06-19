@@ -1,8 +1,8 @@
 package chow.zidane.ojs.leetcode;
 
 import chow.zidane.ojs.leetcode.converter.StringToBinaryTreeConverter;
-import chow.zidane.ojs.leetcode.converter.StringToIntArrayConverter;
-import java.util.Arrays;
+import chow.zidane.ojs.leetcode.converter.StringToIntegerListsConverter;
+import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.converter.ConvertWith;
@@ -15,17 +15,7 @@ class VerticalOrderTraversalBinaryTreeTest {
             "'0,8,1,*,*,3,2,*,4,5,*,*,7,6','8|0,3,6|1,4,5|2,7'","'0,5,1,9,*,2,*,*,*,*,3,4,8,6,*,*,*,7','9,7|5,6|0,2,4|1,3|8'"})
     void test(
             @ConvertWith(StringToBinaryTreeConverter.class) TreeNode root,
-            @ConvertWith(StringToIntArrayConverter.class) int[][] expects) {
-
-        int[][] results = VerticalOrderTraversalBinaryTree.traverse(root).stream()
-                .map(list -> list.stream()
-                        .mapToInt(Integer::new)
-                        .toArray())
-                .toArray(int[][]::new);
-
-        Assertions.assertEquals(expects.length, results.length);
-        for (int i = 0; i < expects.length; i++) {
-            Assertions.assertArrayEquals(expects[i], results[i]);
-        }
+            @ConvertWith(StringToIntegerListsConverter.class) List<List<Integer>> expects) {
+        Assertions.assertIterableEquals(expects, VerticalOrderTraversalBinaryTree.traverse(root));
     }
 }
