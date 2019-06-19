@@ -1,6 +1,6 @@
 package chow.zidane.ojs.leetcode;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import chow.zidane.ojs.leetcode.converter.StringToListNodeConverter;
 import org.junit.jupiter.params.ParameterizedTest;
