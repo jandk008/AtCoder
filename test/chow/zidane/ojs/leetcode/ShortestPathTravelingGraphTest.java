@@ -1,6 +1,6 @@
 package chow.zidane.ojs.leetcode;
 
-import chow.zidane.ojs.leetcode.converter.StringToIntArrayConverter;
+import chow.zidane.ojs.leetcode.converter.StringToIntegerArrayConverter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.converter.ConvertWith;
@@ -14,7 +14,7 @@ class ShortestPathTravelingGraphTest {
                     + "11|0, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11|0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 11|0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11|0, 1, 2, "
                     + "3, 4, 5, 6, 8, 9, 10, 11|0, 1, 2, 3, 4, 5, 6, 7, 9, 10, 11|0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 11|0, 1, 2, 3, 4, 5, 6, "
                     + "7, 8, 9, 11|0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10','11'"})
-    void test(@ConvertWith(StringToIntArrayConverter.class) int[][] graph, int shortestPath) {
+    void test(@ConvertWith(StringToIntegerArrayConverter.class) int[][] graph, int shortestPath) {
         Assertions.assertEquals(shortestPath, ShortestPathTravelingGraph.find(graph));
     }
 }

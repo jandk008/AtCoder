@@ -2,7 +2,7 @@ package chow.zidane.ojs.leetcode;
 
 import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 
-import chow.zidane.ojs.leetcode.converter.StringToIntArrayConverter;
+import chow.zidane.ojs.leetcode.converter.StringToIntegerArrayConverter;
 import chow.zidane.ojs.leetcode.converter.StringToIntegerListsConverter;
 import chow.zidane.ojs.leetcode.converter.StringToStringListConverter;
 import java.util.List;
@@ -20,8 +20,8 @@ class DistinctStringPermutationTest {
 
     @ParameterizedTest
     @CsvSource( {"'1,2,3','1,2,3|1,3,2|2,1,3|2,3,1|3,2,1|3,1,2'"})
-    void permutationWthIntArray(
-            @ConvertWith(StringToIntArrayConverter.class) int[] nums,
+    void permutationWthIntegerArray(
+            @ConvertWith(StringToIntegerArrayConverter.class) int[] nums,
             @ConvertWith(StringToIntegerListsConverter.class) List<List<Integer>> expected) {
         assertIterableEquals(expected, DistinctStringPermutation.recursionWithIntegerArray(nums));
     }

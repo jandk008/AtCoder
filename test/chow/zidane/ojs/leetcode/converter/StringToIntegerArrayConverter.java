@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import org.junit.jupiter.params.converter.ArgumentConversionException;
 import org.junit.jupiter.params.converter.SimpleArgumentConverter;
 
-public class StringToIntArrayConverter extends SimpleArgumentConverter {
+public class StringToIntegerArrayConverter extends SimpleArgumentConverter {
 
     private static final Pattern PATTERN = Pattern.compile("\\s*,\\s*");
 
