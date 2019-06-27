@@ -4,7 +4,7 @@ import java.util.Arrays;
 import org.junit.jupiter.params.converter.ArgumentConversionException;
 import org.junit.jupiter.params.converter.SimpleArgumentConverter;
 
-public class StringToCharArrayConverter extends SimpleArgumentConverter {
+public class ToCharArrayConverter extends SimpleArgumentConverter {
 
     @Override
     public Character[][] convert(final Object o, final Class<?> aClass) throws ArgumentConversionException {

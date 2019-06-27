@@ -3,7 +3,7 @@ package chow.zidane.ojs.leetcode;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import chow.zidane.ojs.leetcode.converter.StringToIntegerArrayConverter;
+import chow.zidane.ojs.leetcode.converter.ToIntegerArrayConverter;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.converter.ConvertWith;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -25,9 +25,9 @@ class EscapeLargeMazeTest {
                     + "100054|100067,100055|100066,100056|100065,100057|100064,100058|100063,100059|100062,100060|100061,100061|100060,"
                     + "100062','100079,100063','999948,999967'"})
     void isNotPossibleToEscape(
-            @ConvertWith(StringToIntegerArrayConverter.class) int[][] blocked,
-            @ConvertWith(StringToIntegerArrayConverter.class) int[] source,
-            @ConvertWith(StringToIntegerArrayConverter.class) int[] target) {
+            @ConvertWith(ToIntegerArrayConverter.class) int[][] blocked,
+            @ConvertWith(ToIntegerArrayConverter.class) int[] source,
+            @ConvertWith(ToIntegerArrayConverter.class) int[] target) {
         assertFalse(EscapeLargeMaze.isPossible(blocked, source, target));
     }
 
@@ -47,9 +47,9 @@ class EscapeLargeMazeTest {
             + "|100011,100065|100010,100066|100009,100067|100008,100068|100007,100069|100006,100070|100005,100071','100024,100072',"
             + "'999994,999990'"})
     void isPossibleToEscape(
-            @ConvertWith(StringToIntegerArrayConverter.class) int[][] blocked,
-            @ConvertWith(StringToIntegerArrayConverter.class) int[] source,
-            @ConvertWith(StringToIntegerArrayConverter.class) int[] target) {
+            @ConvertWith(ToIntegerArrayConverter.class) int[][] blocked,
+            @ConvertWith(ToIntegerArrayConverter.class) int[] source,
+            @ConvertWith(ToIntegerArrayConverter.class) int[] target) {
         assertTrue(EscapeLargeMaze.isPossible(blocked, source, target));
     }
 

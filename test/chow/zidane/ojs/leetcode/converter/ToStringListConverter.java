@@ -6,7 +6,7 @@ import java.util.List;
 import org.junit.jupiter.params.converter.ArgumentConversionException;
 import org.junit.jupiter.params.converter.SimpleArgumentConverter;
 
-public class StringToStringListConverter extends SimpleArgumentConverter {
+public class ToStringListConverter extends SimpleArgumentConverter {
 
     @Override
     public List<String> convert(final Object o, final Class<?> aClass) throws ArgumentConversionException {

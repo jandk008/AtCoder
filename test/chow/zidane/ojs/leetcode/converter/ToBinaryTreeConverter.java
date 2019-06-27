@@ -6,7 +6,7 @@ import java.util.Deque;
 import org.junit.jupiter.params.converter.ArgumentConversionException;
 import org.junit.jupiter.params.converter.SimpleArgumentConverter;
 
-public class StringToBinaryTreeConverter extends SimpleArgumentConverter {
+public class ToBinaryTreeConverter extends SimpleArgumentConverter {
 
     @Override
     protected TreeNode convert(final Object o, final Class<?> aClass) throws ArgumentConversionException {

@@ -6,7 +6,7 @@ import org.junit.jupiter.params.converter.ArgumentConversionException;
 import org.junit.jupiter.params.converter.SimpleArgumentConverter;
 import org.junit.platform.commons.util.StringUtils;
 
-public class StringToListNodeConverter extends SimpleArgumentConverter {
+public class ToListNodeConverter extends SimpleArgumentConverter {
 
     @Override
     protected ListNode convert(final Object o, final Class<?> aClass) throws ArgumentConversionException {

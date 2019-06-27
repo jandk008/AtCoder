@@ -2,7 +2,7 @@ package chow.zidane.ojs.leetcode;
 
 import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 
-import chow.zidane.ojs.leetcode.converter.StringToIntegerArrayConverter;
+import chow.zidane.ojs.leetcode.converter.ToIntegerArrayConverter;
 import java.util.List;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.converter.ConvertWith;
@@ -35,8 +35,8 @@ class LargestDivisibleSetTest {
                     + "609,952,965,986,414,451,881,42,257,32,334,130,596,527,94,333,317,244,960,710,852,862,421,81,37,452,274,187,268,"
                     + "520,491,778,18,743,620,145,72,370,118,748,633,997,436,143,573,495,180,34','704,352,176,88,44,22,11,1'"})
     void test(
-            @ConvertWith(StringToIntegerArrayConverter.class) int[] nums,
-            @ConvertWith(StringToIntegerArrayConverter.class) List<Integer> expected) {
+            @ConvertWith(ToIntegerArrayConverter.class) int[] nums,
+            @ConvertWith(ToIntegerArrayConverter.class) List<Integer> expected) {
         assertIterableEquals(expected, LargestDivisibleSet.find(nums));
     }
 }

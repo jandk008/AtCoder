@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 import org.junit.jupiter.params.converter.ArgumentConversionException;
 import org.junit.jupiter.params.converter.SimpleArgumentConverter;
 
-public class StringToBoxConverter extends SimpleArgumentConverter {
+public class ToBoxConverter extends SimpleArgumentConverter {
 
     @Override
     protected List<Box> convert(final Object o, final Class<?> aClass) throws ArgumentConversionException {
