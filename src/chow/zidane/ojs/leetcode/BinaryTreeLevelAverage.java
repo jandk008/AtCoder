@@ -2,28 +2,23 @@ package chow.zidane.ojs.leetcode;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Deque;
-import java.util.LinkedList;
 import java.util.List;
 
-class BinaryTreeLevelTraversalFromBottom {
+class BinaryTreeLevelAverage {
 
-    static List<List<Integer>> traversal(TreeNode root) {
-        if (root == null) {
-            return Collections.emptyList();
-        }
-
+    static List<Double> calculate(TreeNode root) {
         Deque<TreeNode> queue = new ArrayDeque<>();
-        LinkedList<List<Integer>> lists = new LinkedList<>();
+        List<Double> list = new ArrayList<>();
         queue.add(root);
         while (!queue.isEmpty()) {
             int size = queue.size();
-            List<Integer> list = new ArrayList<>();
+            double sum = 0.0;
+            int count = size;
             while (size-- > 0) {
                 root = queue.poll();
                 if (root != null) {
-                    list.add(root.val);
+                    sum += root.val;
                     if (root.left != null) {
                         queue.add(root.left);
                     }
@@ -32,8 +27,8 @@ class BinaryTreeLevelTraversalFromBottom {
                     }
                 }
             }
-            lists.addFirst(list);
+            list.add(sum / count);
         }
-        return lists;
+        return list;
     }
 }
