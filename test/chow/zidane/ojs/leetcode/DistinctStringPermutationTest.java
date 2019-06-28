@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 
 import chow.zidane.ojs.leetcode.converters.ToIntegerArrayConverter;
 import chow.zidane.ojs.leetcode.converters.ToIntegerListsConverter;
-import chow.zidane.ojs.leetcode.converters.ToStringListConverter;
+import chow.zidane.ojs.leetcode.converters.ToStringArrayConverter;
 import java.util.List;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.converter.ConvertWith;
@@ -14,7 +14,7 @@ class DistinctStringPermutationTest {
 
     @ParameterizedTest
     @CsvSource( {"'abc,acb,bac,bca,cab,cba','abc'", "'ab,ba','ab'", "'a','a'"})
-    void permutation(@ConvertWith(ToStringListConverter.class) List<String> expected, String s) {
+    void permutation(@ConvertWith(ToStringArrayConverter.class) List<String> expected, String s) {
         assertIterableEquals(expected, DistinctStringPermutation.recursionWithString(s));
     }
 
