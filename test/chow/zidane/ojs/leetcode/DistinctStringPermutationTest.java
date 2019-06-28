@@ -2,9 +2,9 @@ package chow.zidane.ojs.leetcode;
 
 import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 
-import chow.zidane.ojs.leetcode.converter.ToIntegerArrayConverter;
-import chow.zidane.ojs.leetcode.converter.ToIntegerListsConverter;
-import chow.zidane.ojs.leetcode.converter.ToStringListConverter;
+import chow.zidane.ojs.leetcode.converters.ToIntegerArrayConverter;
+import chow.zidane.ojs.leetcode.converters.ToIntegerListsConverter;
+import chow.zidane.ojs.leetcode.converters.ToStringListConverter;
 import java.util.List;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.converter.ConvertWith;

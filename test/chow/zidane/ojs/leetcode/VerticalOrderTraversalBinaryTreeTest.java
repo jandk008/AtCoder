@@ -1,7 +1,7 @@
 package chow.zidane.ojs.leetcode;
 
-import chow.zidane.ojs.leetcode.converter.ToBinaryTreeConverter;
-import chow.zidane.ojs.leetcode.converter.ToIntegerListsConverter;
+import chow.zidane.ojs.leetcode.converters.ToBinaryTreeConverter;
+import chow.zidane.ojs.leetcode.converters.ToIntegerListsConverter;
 import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;

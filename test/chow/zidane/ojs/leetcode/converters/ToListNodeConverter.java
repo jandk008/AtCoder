@@ -1,4 +1,4 @@
-package chow.zidane.ojs.leetcode.converter;
+package chow.zidane.ojs.leetcode.converters;
 
 import chow.zidane.ojs.leetcode.ListNode;
 import java.util.Arrays;

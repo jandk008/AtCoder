@@ -2,7 +2,7 @@ package chow.zidane.ojs.leetcode;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import chow.zidane.ojs.leetcode.converter.ToCharArrayConverter;
+import chow.zidane.ojs.leetcode.converters.ToCharArrayConverter;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.converter.ConvertWith;
 import org.junit.jupiter.params.provider.CsvSource;

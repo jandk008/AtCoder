@@ -1,4 +1,4 @@
-package chow.zidane.ojs.leetcode.converter;
+package chow.zidane.ojs.leetcode.converters;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import org.junit.jupiter.params.converter.ArgumentConversionException;
 import org.junit.jupiter.params.converter.SimpleArgumentConverter;
 
-public class ToDoubleArrayConverter extends SimpleArgumentConverter {
+public class ToIntegerArrayConverter extends SimpleArgumentConverter {
 
     private static final Pattern PATTERN = Pattern.compile("\\s*,\\s*");
 
@@ -16,28 +16,28 @@ public class ToDoubleArrayConverter extends SimpleArgumentConverter {
     protected Object convert(final Object o, final Class<?> aClass) throws ArgumentConversionException {
         if (o instanceof String) {
             String input = (String) o;
-            if (double[].class.isAssignableFrom(aClass)) {
+            if (int[].class.isAssignableFrom(aClass)) {
                 if (input.length() == 0) return new int[0];
                 return PATTERN.splitAsStream(input)
-                        .mapToDouble(Double::parseDouble)
+                        .mapToInt(Integer::parseInt)
                         .toArray();
             }
 
             if (List.class.isAssignableFrom(aClass)) {
                 if (input.length() == 0) return Collections.emptyList();
                 return PATTERN.splitAsStream(input)
-                        .mapToDouble(Double::parseDouble)
+                        .mapToInt(Integer::parseInt)
                         .boxed()
                         .collect(Collectors.toList());
             }
 
-            if (double[][].class.isAssignableFrom(aClass)) {
-                if (input.length() == 0) return new double[0][];
+            if (int[][].class.isAssignableFrom(aClass)) {
+                if (input.length() == 0) return new int[0][];
                 return Arrays.stream((input).split("\\s*\\|\\s*"))
-                        .map(s -> Arrays.stream(s.split("\\s*,\\s*")).mapToDouble(Double::parseDouble).toArray())
-                        .toArray(double[][]::new);
+                        .map(s -> Arrays.stream(s.split("\\s*,\\s*")).mapToInt(Integer::parseInt).toArray())
+                        .toArray(int[][]::new);
             }
         }
-       throw new IllegalArgumentException("only convert String to double[], double[][] or List<Double>");
+       throw new IllegalArgumentException("only convert String to int[] or int[][]");
     }
 }

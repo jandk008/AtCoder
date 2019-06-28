@@ -2,8 +2,8 @@ package chow.zidane.ojs.leetcode;
 
 import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 
-import chow.zidane.ojs.leetcode.converter.ToBinaryTreeConverter;
-import chow.zidane.ojs.leetcode.converter.ToDoubleArrayConverter;
+import chow.zidane.ojs.leetcode.converters.ToBinaryTreeConverter;
+import chow.zidane.ojs.leetcode.converters.ToDoubleArrayConverter;
 import java.util.List;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.converter.ConvertWith;

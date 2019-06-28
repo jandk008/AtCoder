@@ -1,4 +1,4 @@
-package chow.zidane.ojs.leetcode.converter;
+package chow.zidane.ojs.leetcode.converters;
 
 import java.util.Arrays;
 import org.junit.jupiter.params.converter.ArgumentConversionException;

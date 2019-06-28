@@ -1,8 +1,8 @@
 package chow.zidane.ojs.leetcode;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static chow.zidane.ojs.leetcode.assertions.ListNodeAssertions.assertListNodeEquals;
 
-import chow.zidane.ojs.leetcode.converter.ToListNodeConverter;
+import chow.zidane.ojs.leetcode.converters.ToListNodeConverter;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.converter.ConvertWith;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -14,12 +14,8 @@ class MergeTwoSortedListTest {
     void test(
             @ConvertWith(ToListNodeConverter.class) ListNode l1,
             @ConvertWith(ToListNodeConverter.class) ListNode l2,
-            @ConvertWith(ToListNodeConverter.class) ListNode expect) {
-        ListNode merged = MergeTwoSortedList.merge(l1, l2);
-        while (expect != null) {
-            assertEquals(merged.val, expect.val);
-            expect = expect.next;
-            merged = merged.next;
-        }
+            @ConvertWith(ToListNodeConverter.class) ListNode expected) {
+        assertListNodeEquals(expected, MergeTwoSortedList.merge(l1, l2));
     }
+
 }
