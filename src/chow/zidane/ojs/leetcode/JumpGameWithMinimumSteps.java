@@ -31,7 +31,7 @@ class JumpGameWithMinimumSteps {
         for (int i = 0; i < nums.length - 1; i++) {
             for (int j = i + 1; j < nums.length && j <= i + nums[i]; j++) {
                 cache[j] = Math.min(cache[j], cache[i] + 1);
-                if (j >= nums.length - 1) {
+                if (j == nums.length - 1) {
                     return cache[j];
                 }
             }
