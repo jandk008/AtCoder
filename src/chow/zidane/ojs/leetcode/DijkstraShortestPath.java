@@ -6,12 +6,12 @@ import java.util.PriorityQueue;
 class DijkstraShortestPath {
 
     static int find(final GraphVertex s, final GraphVertex t) {
-        PriorityQueue<GraphVertex> maxHeap = new PriorityQueue<>(Comparator.comparingInt(g -> g.distance));
+        PriorityQueue<GraphVertex> minHeap = new PriorityQueue<>(Comparator.comparingInt(g -> g.distance));
         s.distance = 0;
         s.previous = s;
-        maxHeap.add(s);
-        while (!maxHeap.isEmpty()) {
-            GraphVertex curr = maxHeap.poll();
+        minHeap.add(s);
+        while (!minHeap.isEmpty()) {
+            GraphVertex curr = minHeap.poll();
             for (Edge edge: curr.edges) {
                 GraphVertex v = edge.v;
                 if (!v.isVisited) {
@@ -19,7 +19,7 @@ class DijkstraShortestPath {
                         v.previous = curr;
                         v.distance = curr.distance + edge.wight;
                     }
-                    maxHeap.add(v);
+                    minHeap.add(v);
                 }
             }
             curr.isVisited = true;
